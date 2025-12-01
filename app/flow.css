@@ -1,0 +1,45 @@
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+.year-display {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffdd00;
+  text-shadow: 
+    0 0 10px rgba(255, 221, 0, 0.8),
+    0 0 20px rgba(255, 170, 0, 0.6),
+    0 0 30px rgba(255, 136, 0, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(10, 10, 21, 0.7);
+  padding: 20px 40px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 221, 0, 0.5);
+  backdrop-filter: blur(10px);
+  animation: glow-pulse 1s ease-in-out infinite;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px rgba(255, 221, 0, 0.8),
+      0 0 20px rgba(255, 170, 0, 0.6),
+      0 0 30px rgba(255, 136, 0, 0.4),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px rgba(255, 221, 0, 1),
+      0 0 30px rgba(255, 170, 0, 0.8),
+      0 0 40px rgba(255, 136, 0, 0.6),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}

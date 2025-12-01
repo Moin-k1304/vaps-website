@@ -1,0 +1,234 @@
+/* ============================================
+   New Timeline Section Styles
+   ============================================ */
+
+.new-timeline-section {
+    min-height: 100vh;
+    background: var(--white);
+    position: relative;
+    padding: 4rem 0;
+}
+
+.new-timeline-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.new-timeline-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.new-timeline-label {
+    color: var(--purple-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.new-timeline-heading {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.new-timeline-heading-accent {
+    color: var(--purple-primary);
+}
+
+.new-timeline-description {
+    font-size: 1rem;
+    color: var(--gray-medium);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.new-timeline-path-container {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+}
+
+.new-timeline-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.new-timeline-ball {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--purple-primary);
+    animation: pulse-glow 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px hsl(291, 84%, 58%), 0 0 40px hsl(291, 84%, 58%, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px hsl(291, 84%, 58%), 0 0 60px hsl(291, 84%, 58%, 0.7);
+    }
+}
+
+.new-timeline-milestone {
+    position: absolute;
+    transform: translateY(30px);
+}
+
+.new-timeline-milestone::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: var(--purple-primary);
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+}
+
+.new-timeline-milestone-mobile {
+    transform: translate(-50%, 30px);
+}
+
+.new-timeline-milestone-mobile::before {
+    height: 30px;
+    top: -30px;
+}
+
+.new-timeline-milestone-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border: 2px solid rgba(152, 16, 250, 0.15);
+    box-shadow: 0 8px 24px rgba(152, 16, 250, 0.12);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.new-timeline-milestone-card::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--purple-primary);
+    border-radius: 50%;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px rgba(152, 16, 250, 0.2);
+}
+
+.new-timeline-milestone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(152, 16, 250, 0.2);
+    border-color: rgba(152, 16, 250, 0.3);
+}
+
+.new-timeline-milestone-card-right {
+    margin-left: auto;
+}
+
+.new-timeline-milestone-year {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--purple-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+    line-height: 1;
+}
+
+.new-timeline-milestone-title {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.new-timeline-milestone-description {
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    color: var(--gray-medium);
+    line-height: 1.5;
+}
+
+/* Responsive Styles */
+@media (min-width: 1024px) {
+    .new-timeline-ball {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .new-timeline-path-container {
+        height: 100vh;
+        min-height: 700px;
+    }
+    
+    .new-timeline-milestone-card {
+        padding: 1rem 1.25rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .new-timeline-section {
+        padding: 2rem 0;
+    }
+
+    .new-timeline-container {
+        padding: 0 1rem;
+    }
+
+    .new-timeline-header {
+        margin-bottom: 2rem;
+    }
+
+    .new-timeline-path-container {
+        height: 100vh;
+        min-height: 500px;
+    }
+
+    .new-timeline-ball {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .new-timeline-milestone-card {
+        padding: 1rem;
+    }
+    
+    .new-timeline-milestone::before {
+        height: 25px;
+        top: -25px;
+    }
+    
+    .new-timeline-milestone-year {
+        font-size: 1.75rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .new-timeline-milestone-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .new-timeline-milestone-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+}
+

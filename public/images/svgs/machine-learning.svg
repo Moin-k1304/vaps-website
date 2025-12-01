@@ -1,0 +1,47 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brainGrad" x1="32" y1="8" x2="32" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF6B9D"/>
+      <stop offset="50%" stop-color="#E63946"/>
+      <stop offset="100%" stop-color="#C1121F"/>
+    </linearGradient>
+    <linearGradient id="brainHighlight" x1="32" y1="16" x2="32" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFB3BA" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FF6B9D" stop-opacity="0.3"/>
+    </linearGradient>
+    <radialGradient id="brainGlow" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#FF6B9D" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Brain Glow -->
+  <ellipse cx="32" cy="32" rx="28" ry="24" fill="url(#brainGlow)"/>
+  
+  <!-- Brain Main Shape -->
+  <path d="M32 12C28 12 24 14 22 18C20 16 18 18 18 20C16 20 14 22 14 24C12 26 12 28 14 30C12 32 12 34 14 36C12 38 14 40 16 42C18 44 20 46 22 48C24 50 26 52 28 52C30 52 32 50 32 48C34 50 36 52 38 52C40 52 42 50 44 48C46 46 48 44 50 42C52 40 52 38 50 36C52 34 52 32 50 30C52 28 52 26 50 24C50 22 48 20 46 20C44 18 42 16 40 18C38 14 34 12 32 12Z" fill="url(#brainGrad)"/>
+  
+  <!-- Brain Left Hemisphere -->
+  <path d="M20 20C18 22 18 26 20 28C20 30 22 32 24 34C24 36 22 38 20 40C18 42 18 44 20 46C22 48 24 48 26 46C28 44 28 42 26 40C28 38 28 36 26 34C24 32 22 30 22 28C22 26 22 24 24 22C24 20 22 20 20 20Z" fill="url(#brainHighlight)"/>
+  
+  <!-- Brain Right Hemisphere -->
+  <path d="M44 20C46 22 46 26 44 28C44 30 42 32 40 34C40 36 42 38 44 40C46 42 46 44 44 46C42 48 40 48 38 46C36 44 36 42 38 40C36 38 36 36 38 34C40 32 42 30 42 28C42 26 42 24 40 22C40 20 42 20 44 20Z" fill="url(#brainHighlight)"/>
+  
+  <!-- Brain Folds/Details -->
+  <path d="M28 24C28 26 30 28 32 28C34 28 36 26 36 24" stroke="#FFFFFF" stroke-width="1" opacity="0.4" fill="none"/>
+  <path d="M26 32C26 34 28 36 32 36C36 36 38 34 38 32" stroke="#FFFFFF" stroke-width="1" opacity="0.4" fill="none"/>
+  <path d="M28 40C28 42 30 44 32 44C34 44 36 42 36 40" stroke="#FFFFFF" stroke-width="1" opacity="0.4" fill="none"/>
+  
+  <!-- Neural Network Nodes -->
+  <circle cx="24" cy="28" r="1.5" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="32" cy="24" r="1.5" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="40" cy="28" r="1.5" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="28" cy="36" r="1.5" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="36" cy="36" r="1.5" fill="#FFFFFF" opacity="0.6"/>
+  
+  <!-- Connection Lines -->
+  <line x1="24" y1="28" x2="32" y2="24" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  <line x1="32" y1="24" x2="40" y2="28" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  <line x1="28" y1="36" x2="32" y2="32" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+  <line x1="36" y1="36" x2="32" y2="32" stroke="#FFFFFF" stroke-width="0.5" opacity="0.3"/>
+</svg>

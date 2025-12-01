@@ -1,0 +1,45 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="teachingGrad" x1="32" y1="0" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="50%" stop-color="#93C5FD"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="bookGrad" x1="32" y1="40" x2="32" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <radialGradient id="faceGrad" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#FFE5B4"/>
+      <stop offset="100%" stop-color="#FFD89C"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Head -->
+  <circle cx="32" cy="18" r="10" fill="url(#faceGrad)"/>
+  
+  <!-- Hair -->
+  <path d="M22 18C22 12 26 8 32 8C38 8 42 12 42 18C42 20 41 22 40 24C38 22 35 20 32 20C29 20 26 22 24 24C23 22 22 20 22 18Z" fill="#FFD700"/>
+  
+  <!-- Glasses Frame -->
+  <rect x="24" y="16" width="8" height="6" rx="3" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+  <rect x="32" y="16" width="8" height="6" rx="3" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+  <line x1="32" y1="19" x2="32" y2="19" stroke="#2563EB" stroke-width="1.5"/>
+  
+  <!-- Body/Shirt -->
+  <path d="M20 28C20 26 22 24 24 24C26 24 28 26 28 28V50C28 52 26 54 24 54C22 54 20 52 20 50V28Z" fill="url(#teachingGrad)"/>
+  <path d="M36 28C36 26 38 24 40 24C42 24 44 26 44 28V50C44 52 42 54 40 54C38 54 36 52 36 50V28Z" fill="url(#teachingGrad)"/>
+  <rect x="24" y="28" width="16" height="26" rx="2" fill="url(#teachingGrad)"/>
+  
+  <!-- Book -->
+  <rect x="26" y="40" width="12" height="20" rx="1" fill="url(#bookGrad)"/>
+  <line x1="32" y1="40" x2="32" y2="60" stroke="#1E40AF" stroke-width="1"/>
+  <circle cx="29" cy="48" r="1" fill="#DBEAFE"/>
+  <circle cx="35" cy="48" r="1" fill="#DBEAFE"/>
+  <circle cx="29" cy="52" r="1" fill="#DBEAFE"/>
+  <circle cx="35" cy="52" r="1" fill="#DBEAFE"/>
+  
+  <!-- Arms -->
+  <ellipse cx="18" cy="36" rx="3" ry="8" fill="url(#teachingGrad)" transform="rotate(-20 18 36)"/>
+  <ellipse cx="46" cy="36" rx="3" ry="8" fill="url(#teachingGrad)" transform="rotate(20 46 36)"/>
+</svg>

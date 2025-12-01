@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Future Tech Showcase</title>
+    <style>
+        /* --- FUTURISTIC RESET & VARIABLES --- */
+        :root {
+            --bg-deep: #030305;
+            --accent-cyan: #00f0ff;
+            --accent-purple: #7000ff;
+            --text-glow: 0 0 10px rgba(0, 240, 255, 0.5);
+            --card-bg: rgba(20, 20, 30, 0.6);
+            --font-main: 'Rajdhani', sans-serif; /* Tech-looking font */
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: white;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+        }
+
+        /* --- CYBER BACKGROUND --- */
+        .cyber-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background:
+                linear-gradient(transparent 95%, rgba(0, 240, 255, 0.03) 95%),
+                linear-gradient(90deg, transparent 95%, rgba(112, 0, 255, 0.03) 95%);
+            background-size: 40px 40px;
+            z-index: -2;
+        }
+
+        /* Glowing Orb in background */
+        .orb {
+            position: fixed;
+            top: 50%; left: 50%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.15), transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: blur(50px);
+            animation: pulse 8s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .sub-head {
+            text-align: center;
+            color: #888;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           SECTION 1: THE INTELLIGENT ACCORDION (AWARDS)
+           ========================================= */
+        .section-awards {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .accordion-container {
+            display: flex;
+            width: 100%;
+            height: 450px;
+            gap: 10px;
+        }
+
+        .award-panel {
+            position: relative;
+            flex: 1; /* All start equal */
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        /* The Magic: Hover expands the card */
+        .award-panel:hover {
+            flex: 3.5; /* Grows significantly */
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+        }
+
+        /* Dim siblings on parent hover */
+        .accordion-container:hover .award-panel:not(:hover) {
+            opacity: 0.5;
+            filter: blur(2px);
+        }
+
+        /* Image handling */
+        .panel-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            transition: transform 0.6s, opacity 0.6s;
+            z-index: 0;
+        }
+
+        .award-panel:hover .panel-bg {
+            transform: scale(1.1);
+            opacity: 0.2; /* Darken bg so text pops */
+        }
+
+        /* Content inside the panel */
+        .panel-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0; /* Hidden by default */
+            transform: translateY(20px);
+            transition: all 0.4s delay 0.1s;
+            width: 100%;
+        }
+
+        /* Vertical text when collapsed */
+        .panel-label {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-90deg);
+            white-space: nowrap;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .award-panel:hover .panel-label {
+            opacity: 0; /* Hide vertical label on expand */
+        }
+
+        .award-panel:hover .panel-content {
+            opacity: 1; /* Show content on expand */
+            transform: translateY(0);
+        }
+
+        .award-year {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .award-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .award-desc {
+            font-size: 0.9rem;
+            color: #ccc;
+            max-width: 400px;
+        }
+
+        /* =========================================
+           SECTION 2: WARP SPEED CLIENTS (VELOCITY SKEW)
+           ========================================= */
+        .section-clients {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+        }
+
+        .warp-track-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 3rem 0;
+            /* Perspective is key for the 3D feel */
+            perspective: 1000px;
+        }
+
+        .warp-track {
+            display: flex;
+            gap: 4rem;
+            width: max-content;
+            /* Using Will-Change for high performance rendering */
+            will-change: transform;
+        }
+
+        .client-card {
+            width: 220px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #666;
+            border-radius: 4px;
+            transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+
+            /* Initial skew setup */
+            transform-origin: center bottom;
+        }
+
+        .client-card:hover {
+            background: rgba(112, 0, 255, 0.1);
+            border-color: var(--accent-purple);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-purple);
+            /* On hover, we remove the skew via JS/CSS interaction */
+            transform: scale(1.1) !important;
+            z-index: 10;
+        }
+
+        /* A futuristic visual line through the track */
+        .scanline {
+            position: absolute;
+            top: 50%; left: 0; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="orb"></div>
+
+    <!-- SECTION 1: AWARDS -->
+    <section class="section-awards">
+        <h2>Our Distinctions</h2>
+        <p class="sub-head">RECOGNIZING EXCELLENCE IN AI TRANSFORMATION</p>
+
+        <div class="accordion-container">
+            <!-- Award 1 -->
+            <div class="award-panel">
+                <img src="https://images.unsplash.com/photo-1535378437327-b7149b3799d1?q=80&w=1000&auto=format&fit=crop" class="panel-bg" alt="AI">
+                <div class="panel-label">INNOVATION 2024</div>
+                <div class="panel-content">
+                    <div class="award-year">2024 WINNER</div>
+                    <div class="award-title">AI Innovation</div>
+                    <div class="award-desc">Awarded for accelerating the creation of cutting-edge AI-driven solutions in the education sector.</div>
+                </div>
+            </div>
+
+            <!-- Award 2 -->
+            <div class="award-panel">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" class="panel-bg" alt="Tech">
+                <div class="panel-label">TECH IMPACT</div>
+                <div class="panel-content">
+                    <div class="award-year">GLOBAL SUMMIT</div>
+                    <div class="award-title">Tech Impact</div>
+                    <div class="award-desc">Recognized for empowering institutions to address real-world challenges through custom software.</div>
+                </div>
+            </div>
+
+            <!-- Award 3 -->
+            <div class="award-panel">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" class="panel-bg" alt="Cyber">
+                <div class="panel-label">FUTURE READY</div>
+                <div class="panel-content">
+                    <div class="award-year">EDTECH WEEK</div>
+                    <div class="award-title">Future Ready</div>
+                    <div class="award-desc">Building an open and collaborative culture that drives digital outcomes.</div>
+                </div>
+            </div>
+
+            <!-- Award 4 -->
+            <div class="award-panel">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop" class="panel-bg" alt="Code">
+                <div class="panel-label">BEST UX/UI</div>
+                <div class="panel-content">
+                    <div class="award-year">DESIGN AWARDS</div>
+                    <div class="award-title">Best UX/UI</div>
+                    <div class="award-desc">Transforming how technology serves institutions with intuitive, human-centric design.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CLIENTS -->
+    <section class="section-clients">
+        <div class="scanline"></div>
+        <h2>Trusted Partners</h2>
+        <p class="sub-head">POWERING THE NEXT GENERATION OF INSTITUTIONS</p>
+
+        <div class="warp-track-container">
+            <div class="warp-track" id="track">
+                <!-- Generated via JS for infinite effect, but placed here for structure -->
+                <div class="client-card">CyberEdu</div>
+                <div class="client-card">Nexus Labs</div>
+                <div class="client-card">Vertex Uni</div>
+                <div class="client-card">DataFlow</div>
+                <div class="client-card">OmniTech</div>
+                <div class="client-card">Solaris AI</div>
+                <div class="client-card">Quantum Sys</div>
+                <div class="client-card">HyperGrid</div>
+                <div class="client-card">NeoLearn</div>
+                <!-- Duplicates will be added by JS -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /*
+           LOGIC FOR THE WARP SPEED SLIDER
+           This script handles the infinite scrolling AND the skew distortion
+           based on speed to simulate "Warp Speed".
+        */
+        const track = document.getElementById('track');
+        const container = document.querySelector('.warp-track-container');
+
+        // Clone items for infinite loop
+        const items = Array.from(track.children);
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
+
+        let scrollPos = 0;
+        let speed = 2; // Base speed
+        let targetSpeed = 2;
+        let skew = 0;
+        let isHovered = false;
+
+        // Physics loop
+        function animate() {
+            // Smooth speed transition
+            speed += (targetSpeed - speed) * 0.1;
+
+            // Update scroll position
+            scrollPos -= speed;
+
+            // Reset if moved past half width (Infinite loop logic)
+            const trackWidth = track.scrollWidth / 3;
+            if (scrollPos <= -trackWidth) {
+                scrollPos = 0;
+            }
+
+            // Calculate Skew based on speed (The "Warp" Effect)
+            // If moving fast, skew is higher. If stopped, skew is 0.
+            skew = speed * -2;
+
+            // Apply transform
+            track.style.transform = `translateX(${scrollPos}px) skewX(${skew}deg)`;
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Interaction: Speed up on leaving, Slow down on hover
+        container.addEventListener('mouseenter', () => {
+            targetSpeed = 0.5; // Slow motion inspect
+            isHovered = true;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            targetSpeed = 4; // Warp speed away!
+            setTimeout(() => { targetSpeed = 2; }, 1000); // Return to normal
+            isHovered = false;
+        });
+
+        // Optional: Responsive fix
+        window.addEventListener('resize', () => {
+            // Recalculate widths if needed
+        });
+
+    </script>
+</body>
+</html>

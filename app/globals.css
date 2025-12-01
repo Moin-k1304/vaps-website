@@ -1,0 +1,348 @@
+/* Global styles - minimal overrides */
+
+/* Smooth scrolling and prevent horizontal overflow */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* Restored to prevent horizontal scroll */
+  width: 100%;
+}
+
+
+/* Hide custom cursor when lightbox is open */
+body.lightbox-open .custom-cursor,
+body.lightbox-open .custom-cursor-follower {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+body.lightbox-open,
+body.lightbox-open * {
+  cursor: default !important;
+}
+
+/* Fix Next.js Image component display */
+img[data-nimg] {
+  color: inherit !important;
+  opacity: 1 !important;
+  display: block;
+}
+
+:root {
+  /* Colors */
+  --purple-primary: #9810FA;
+  --purple-light: #8b0ff8;
+  --purple-dark: #553C9A;
+  --blue-primary: #03297B;
+  --blue-light: #3B82F6;
+  --white: #FFFFFF;
+  --black: #000000;
+  --dark-bg: #1A1A1A;
+  --orange: #FF7B00;
+  --green: #10B981;
+  --gray-light: #FAFAFA;
+  --gray-medium: #898990;
+  --gray-dark: #717171;
+  --primary: #7445DF;
+
+
+  /* Typography */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Raleway', sans-serif;
+  --line-height: 1.5rem;
+  --line-height-title: 2.625rem;
+
+  /* Animations */
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.5s ease;
+  --transition-slow: 1s ease;
+  --section-space: 6rem;
+  --section-small-space: 2rem;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--dark-bg);
+  /* overflow-x: hidden; */
+  /* Restored */
+  background: var(--white);
+  width: 100%;
+  position: relative;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-dark);
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a {
+  transition: all 0.3s ease;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+}
+
+/* Create an invisible bridge to keep dropdown visible when moving mouse */
+.dropdown-container::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  z-index: 1002;
+  display: none;
+}
+
+.dropdown-container:hover::before {
+  display: block;
+}
+
+.dropdown-container:hover .dropdown-menu,
+.dropdown-container:hover .dropdown-menu:hover,
+.dropdown-container .dropdown-menu:hover {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(152, 16, 250, 0.2);
+  border-radius: 12px;
+  padding: 0;
+  min-width: 240px;
+  z-index: 1001;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  overflow: hidden;
+  border: 1px solid rgba(152, 16, 250, 0.15);
+  visibility: hidden;
+}
+
+.dropdown-header {
+  background: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 100%);
+  color: var(--white);
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  margin: 0;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  color: var(--gray-dark);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.05);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(90deg, rgba(152, 16, 250, 0.1) 0%, rgba(3, 41, 123, 0.05) 100%);
+  color: var(--purple-primary);
+  padding-left: 24px;
+}
+
+/* Hamburger Menu Animation */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background: var(--white);
+  box-shadow: -5px 0 15px rgba(152, 16, 250, 0.2);
+  padding: 80px 0 20px 0;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu a {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.1);
+  color: var(--gray-dark);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu a:hover {
+  background: rgba(152, 16, 250, 0.05);
+  color: var(--purple-primary);
+  padding-left: 28px;
+}
+
+.mobile-nav-group {
+  border-bottom: 1px solid rgba(152, 16, 250, 0.1);
+}
+
+.mobile-nav-group .mobile-nav-header {
+  padding: 15px 20px !important;
+  background: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 100%);
+  color: var(--white) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.mobile-nav-children {
+  background: var(--gray-light);
+}
+
+.mobile-nav-children a,
+.mobile-nav-child-link {
+  padding: 12px 20px 12px 40px !important;
+  border-bottom: 1px solid rgba(152, 16, 250, 0.05);
+  font-size: 0.95rem;
+  color: var(--gray-dark);
+  transition: all 0.2s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.mobile-nav-children a:hover,
+.mobile-nav-child-link:hover {
+  background: rgba(152, 16, 250, 0.1);
+  color: var(--purple-primary);
+  padding-left: 48px !important;
+}
+
+@media (max-width: 991px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+}
+
+/* Gradient Animation for Text */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+  background-size: 200% auto;
+}
+
+/* Delay utilities for animations */
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.orb-container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}

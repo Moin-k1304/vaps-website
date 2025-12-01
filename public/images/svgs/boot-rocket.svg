@@ -1,0 +1,65 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rocketGrad" x1="32" y1="0" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9810FA"/>
+      <stop offset="50%" stop-color="#7445DF"/>
+      <stop offset="100%" stop-color="#553C9A"/>
+    </linearGradient>
+    <linearGradient id="noseGrad" x1="32" y1="2" x2="32" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="100%" stop-color="#E63946"/>
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="32" y1="46" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFD93D" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#FF6B6B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#E63946" stop-opacity="0.7"/>
+    </linearGradient>
+    <radialGradient id="windowGrad" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="70%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Rocket Nose -->
+  <path d="M32 2L25 14H39L32 2Z" fill="url(#noseGrad)"/>
+  
+  <!-- Rocket Body -->
+  <rect x="25" y="14" width="14" height="34" rx="7" fill="url(#rocketGrad)"/>
+  
+  <!-- Body Accent -->
+  <rect x="27" y="16" width="10" height="30" rx="5" fill="#7445DF" opacity="0.3"/>
+  
+  <!-- Rocket Window -->
+  <circle cx="32" cy="28" r="6" fill="url(#windowGrad)"/>
+  <circle cx="32" cy="28" r="4" fill="#DBEAFE"/>
+  <circle cx="32" cy="28" r="2" fill="#FFFFFF"/>
+  
+  <!-- Side Panels -->
+  <rect x="25" y="20" width="2" height="22" rx="1" fill="#FFFFFF" opacity="0.2"/>
+  <rect x="37" y="20" width="2" height="22" rx="1" fill="#FFFFFF" opacity="0.2"/>
+  
+  <!-- Rocket Fins -->
+  <path d="M25 48L18 60L25 54V48Z" fill="url(#noseGrad)"/>
+  <path d="M39 48L46 60L39 54V48Z" fill="url(#noseGrad)"/>
+  
+  <!-- Rocket Flame -->
+  <path d="M22 48L20 56L24 54L22 48Z" fill="url(#flameGrad)"/>
+  <path d="M26 48L24 58L28 56L26 48Z" fill="url(#flameGrad)"/>
+  <path d="M30 48L28 58L32 56L30 48Z" fill="url(#flameGrad)"/>
+  <path d="M34 48L32 58L36 56L34 48Z" fill="url(#flameGrad)"/>
+  <path d="M38 48L36 58L40 56L38 48Z" fill="url(#flameGrad)"/>
+  <path d="M42 48L40 56L44 54L42 48Z" fill="url(#flameGrad)"/>
+  
+  <!-- Flame Glow -->
+  <ellipse cx="28" cy="58" rx="4" ry="5" fill="#FFD93D" opacity="0.3" filter="url(#glow)"/>
+  <ellipse cx="32" cy="60" rx="5" ry="6" fill="#FF6B6B" opacity="0.4" filter="url(#glow)"/>
+  <ellipse cx="36" cy="58" rx="4" ry="5" fill="#FFD93D" opacity="0.3" filter="url(#glow)"/>
+</svg>
